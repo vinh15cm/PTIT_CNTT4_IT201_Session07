@@ -7,23 +7,23 @@ void swap(int *a, int *b) {
 }
 // ham chia mang va tra ve chi so pivot
 int partition(int arr[], int left, int right) {
-    int pivot = arr[high]; // chon phan tu cuoi lam pivot
-    int i = low -1;
-    for (int j = low; j< high;j++) {
+    int pivot = arr[right]; // chon phan tu cuoi lam pivot
+    int i = left -1;
+    for (int j = left; j< right;j++) {
         if (arr[j] < pivot) {
             i++;
             swap(&arr[i], &arr[j]);
         }
     }
-    swap(&arr[i+1],&arr[high]);
+    swap(&arr[i+1],&arr[right]);
     return i+1;
 }
 // ham quicksrt dequy
 void quickSort(int arr[], int left, int right) {
-    if (low<high) {
-        int pi = partition(arr,low,high);
-        quickSort(arr, low, pi-1);
-        quickSort(arr, pi+1, high);
+    if (left<right) {
+        int pi = partition(arr,left,right);
+        quickSort(arr, left, pi-1);
+        quickSort(arr, pi+1, right);
     }
 }
 // ham in mang
